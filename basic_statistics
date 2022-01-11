@@ -19,14 +19,10 @@ initialList = [3, 7, 8, 5, 12, 14, 21, 13, 18, 18]
 
 # 2.1) Initial data
 
-sumOfAllElements = 0
-sumOfAllElementsInverted = 0
 productOfAllElements = 1
 countOfElements = []
 
 for i in range(0, len(initialList)):
-    sumOfAllElements += initialList[i]  # used in Arithmetic mean
-    sumOfAllElementsInverted += (1 / initialList[i])  # used in Harmonic mean
     productOfAllElements *= initialList[i]  # used in Geometric mean
     countOfElements.append(initialList.count(initialList[i]))  # used in mode
 
@@ -36,16 +32,15 @@ max_keys = [k for k, v in countOfAllElements.items() if v == max_value]
 
 # 2.2) Arithmetic mean
 
-arithmeticMean = sumOfAllElements / len(initialList)
+arithmeticMean = sum(initialList) / len(initialList)
 
 # 2.3) Harmonic mean
 
-harmonicMean = len(initialList) / sumOfAllElementsInverted
+harmonicMean = len(initialList) / sum([1/i for i in initialList])
 
 # 2.4) Geometric mean
 
 geometricMean = pow(productOfAllElements, 1 / len(initialList))
-
 
 # 2.5) Mode
 
@@ -89,7 +84,6 @@ def median(X):
         median = 0.5 * (quartile(X)[0][len(quartile(X)[0]) - 1] + quartile(X)[1][0])
 
     return median
-
 
 # 2.7) Quartiles
 
